@@ -16,7 +16,7 @@ k = st.number_input("K: klimaatrespons op emissies", value=0.45, step=0.01, form
 beta1 = st.number_input("β1: Innovatie en populatie parameter", value=0.005, step=0.001, format="%.3f", key="beta1")
 
 # Tijd variabele
-t = st.slider("t (jaren)", min_value=0, max_value=200, value=50, key="t")
+t = st.slider("t (jaren)", min_value=0, max_value=200, value=40, key="t")
 
 st.divider()
 
@@ -64,5 +64,6 @@ except ZeroDivisionError:
 except Exception as e:
     st.error(f"Er is een onverwachte fout opgetreden: {e}")
     st.error("Controleer of de berekeningen positieve waarden geven voor de logaritme.")
+
 
 
