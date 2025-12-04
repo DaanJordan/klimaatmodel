@@ -6,14 +6,14 @@ st.title("Klimaatmodel – Direct Berekenen")
 st.header("Input Parameters")
 
 # INPUTS
-Y0 = st.number_input("Y(0): Inkomen in basisjaar", value=100.0, key="Y0")
-T0 = st.number_input("T(0): Temperatuur in basisjaar", value=14.0, key="T0")
+Y0 = st.number_input("Y(0): Inkomen in basisjaar", value=11.45, key="Y0")
+T0 = st.number_input("T(0): Temperatuur in basisjaar", value=0.56, step=0.01, format="%.2f", key="T0")
 NGHG0 = st.number_input("NGHG(0): Emissies in basisjaar", value=100.0, key="NGHG0")
-delta = st.number_input("δ: schadeparameter", value=0.14, step=0.01, format="%.2f", key="delta")
-beta2 = st.number_input("1-β2: Innovatie en populatie parameter", value=0.7, step=0.01, format="%.2f", key="beta2")
-g = st.number_input("g: groeifactor", value=0.02, step=0.001, format="%.3f", key="g")
-k = st.number_input("K: klimaatrespons op emissies", value=0.01, step=0.001, format="%.3f", key="k")
-beta1 = st.number_input("β1: Innovatie en populatie parameter", value=0.02, step=0.001, format="%.3f", key="beta1")
+delta = st.number_input("δ: schadeparameter", value=0.03, step=0.01, format="%.2f", key="delta")
+beta2 = st.number_input("1-β2: Innovatie en populatie parameter", value=0.5, step=0.01, format="%.2f", key="beta2")
+g = st.number_input("g: groeifactor", value=0.015, step=0.001, format="%.3f", key="g")
+k = st.number_input("K: klimaatrespons op emissies", value=0.45, step=0.01, format="%.2f", key="k")
+beta1 = st.number_input("β1: Innovatie en populatie parameter", value=0.005, step=0.001, format="%.3f", key="beta1")
 
 # Tijd variabele
 t = st.slider("t (jaren)", min_value=0, max_value=200, value=50, key="t")
@@ -64,3 +64,4 @@ except ZeroDivisionError:
 except Exception as e:
     st.error(f"Er is een onverwachte fout opgetreden: {e}")
     st.error("Controleer of de berekeningen positieve waarden geven voor de logaritme.")
+
