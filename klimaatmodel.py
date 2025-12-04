@@ -7,6 +7,8 @@ st.header("Input Parameters")
 
 
 # INPUTS
+Y0 = st.number_input("Y(0): Inkomen in basisjaar", value=100)
+beta0= st.number_input("β0", value=1., step=0.1, format="%.1f")
 T0 = st.number_input("T(0): Temperatuur in basisjaar", value=0.56, step=0.01, format="%.2f", key="T0")
 NGHG0 = st.number_input("NGHG(0): Emissies in basisjaar", value=340.0, key="NGHG0")
 delta = st.number_input("δ: schadeparameter", value=0.25, step=0.01, format="%.2f", key="delta")
@@ -37,7 +39,8 @@ try:
         # 2. Bereken de tweede breuk in de logaritme
         # BreukTerm = (delta * (1 - beta2)) / X
         BreukTerm = (delta * (1.0 - beta2)) / X
-        
+
+        GHG = beta0 * Y0**beta2
         # 3. Bereken de inhoud van de blokhaken
         # HIER GEBRUIKEN WE UW VEREENVOUDIGING: 
         # C = NGHG(0) in plaats van de complexe breuk.
@@ -56,6 +59,7 @@ try:
         # Resultaat weergeven
         st.success(f"De berekende temperatuur $T^*(t)$ in jaar {t} is:")
         st.markdown(f"## **{T_ster_t:.3f} °C**")
+        st.markdown(f"## **{GHG:.1f}**")
         st.caption("Gebaseerd op de interpretatie dat de initiële constante $\\frac{\\kappa \\beta_{0}(Y(0))^{1-\\beta_{2}}}{NGHG(0)}$ wordt vervangen door de input $NGHG(0)$.")
 
 except ZeroDivisionError:
@@ -64,6 +68,7 @@ except ZeroDivisionError:
 except Exception as e:
     st.error(f"Er is een onverwachte fout opgetreden: {e}")
     st.error("Controleer of de berekeningen positieve waarden geven voor de logaritme.")
+
 
 
 
