@@ -69,6 +69,7 @@ except ZeroDivisionError:
 except Exception as e:
     st.error(f"Er is een onverwachte fout opgetreden: {e}")
     st.error("Controleer of de berekeningen positieve waarden geven voor de logaritme.")
+
 st.header("Dynamiek van $T^*(t)$ over de tijd")
 
 # Maak een reeks t-waarden (bijv. van 0 tot 200 in stappen van 1 jaar)
@@ -90,6 +91,7 @@ else:
     
     # Weergave van de initiële temperatuur als referentie
     st.markdown(f"**Opmerking:** De initiële temperatuur $T(0)$ is **{T0}°C**.")
+
 
 
 
