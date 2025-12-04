@@ -71,26 +71,9 @@ except Exception as e:
     st.error("Controleer of de berekeningen positieve waarden geven voor de logaritme.")
 
 st.header("Dynamiek van $T^*(t)$ over de tijd")
-
-# Maak een reeks t-waarden (bijv. van 0 tot 200 in stappen van 1 jaar)
-t_range = np.arange(0, 201, 1)
-
-T_ster_range, foutmelding_range = bereken_temperatuur(t_range, *params)
-
-if foutmelding_range:
-    st.error(f"Fout bij het genereren van de grafiek: {foutmelding_range}")
-else:
-    # Maak een Pandas DataFrame voor de grafiek
-    df = pd.DataFrame({
-        'Jaar': t_range,
-        'Temperatuur (°C)': T_ster_range
-    })
-    
-    # Gebruik st.line_chart om de grafiek te plotten
-    st.line_chart(df, x='Jaar', y='Temperatuur (°C)')
-    
-    # Weergave van de initiële temperatuur als referentie
-    st.markdown(f"**Opmerking:** De initiële temperatuur $T(0)$ is **{T0}°C**.")
+st.line_chart({
+    "NGHG over tijd": T_ster_series
+})
 
 
 
