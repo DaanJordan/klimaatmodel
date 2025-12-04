@@ -26,9 +26,6 @@ st.divider()
 st.subheader("Berekening van $T^*(t)$")
 
 
-GHG = beta0 * Y0**beta2
-st.markdown(f"## **{GHG:.3f}")
-
 # BEREKENING VAN T*(t)
 try:
     # 1. Bereken de exponent 'X' en de noemer in de tweede breuk
@@ -71,6 +68,7 @@ except ZeroDivisionError:
 except Exception as e:
     st.error(f"Er is een onverwachte fout opgetreden: {e}")
     st.error("Controleer of de berekeningen positieve waarden geven voor de logaritme.")
+
 
 
 
