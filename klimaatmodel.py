@@ -7,8 +7,8 @@ st.title("Klimaatmodel – Direct Berekenen")
 st.header("Input Parameters")
 
 # INPUTS
-Y0 = st.number_input("Y(0): Inkomen in basisjaar", value=100.0, step=1.0, key="Y0_input")
-beta0 = st.number_input("β0", value=1.0, step=0.1, format="%.1f", key="beta0_input")
+Y0 = st.number_input("Y(0): NEGEER DIT! Inkomen in basisjaar", value=100.0, step=1.0, key="Y0_input")
+beta0 = st.number_input("NEGEER DIT! β0", value=1.0, step=0.1, format="%.1f", key="beta0_input")
 T0 = st.number_input("T(0): Temperatuur in basisjaar", value=0.56, step=0.01, format="%.2f", key="T0")
 NGHG0 = st.number_input("NGHG(0): Emissies in basisjaar", value=340.0, step=0.1, key="NGHG0")
 delta = st.number_input("δ: schadeparameter", value=0.25, step=0.01, format="%.2f", key="delta")
@@ -96,3 +96,4 @@ else:
     
     # Plot de grafiek
     st.line_chart(df, x='Jaar', y='Temperatuur (°C)')
+
