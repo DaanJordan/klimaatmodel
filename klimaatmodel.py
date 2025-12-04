@@ -27,7 +27,7 @@ st.subheader("Berekening van $T^*(t)$")
 
 try:
         GHG = beta0 * Y0**beta2
-    st.markdown(f"## **{GHG:.3f}")
+        st.markdown(f"## **{GHG:.3f}")
 
 # BEREKENING VAN T*(t)
 try:
@@ -71,6 +71,7 @@ except ZeroDivisionError:
 except Exception as e:
     st.error(f"Er is een onverwachte fout opgetreden: {e}")
     st.error("Controleer of de berekeningen positieve waarden geven voor de logaritme.")
+
 
 
 
