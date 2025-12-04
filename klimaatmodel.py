@@ -1,5 +1,6 @@
 import streamlit as st
 import numpy as np
+import pandas as pd
 
 st.title("Klimaatmodel – Direct Berekenen")
 
@@ -89,6 +90,7 @@ else:
     
     # Weergave van de initiële temperatuur als referentie
     st.markdown(f"**Opmerking:** De initiële temperatuur $T(0)$ is **{T0}°C**.")
+
 
 
 
