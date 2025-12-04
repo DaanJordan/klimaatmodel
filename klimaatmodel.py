@@ -42,7 +42,7 @@ try:
         # HIER GEBRUIKEN WE UW VEREENVOUDIGING: 
         # C = NGHG(0) in plaats van de complexe breuk.
         # InhoudBlokhaken = NGHG(0) * BreukTerm * (e^(X*t) - 1)
-        InhoudBlokhaken = NGHG0 * BreukTerm * (np.exp(X * t) - 1.0)
+        InhoudBlokhaken = k * NGHG0 * BreukTerm * (np.exp(X * t) - 1.0)
         
         # 4. Bereken de totale inhoud van de natuurlijke logaritme (ln)
         InhoudLn = 1.0 + InhoudBlokhaken
@@ -64,4 +64,5 @@ except ZeroDivisionError:
 except Exception as e:
     st.error(f"Er is een onverwachte fout opgetreden: {e}")
     st.error("Controleer of de berekeningen positieve waarden geven voor de logaritme.")
+
 
