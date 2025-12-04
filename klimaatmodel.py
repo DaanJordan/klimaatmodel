@@ -4,6 +4,10 @@ import numpy as np
 st.title("Klimaatmodel – Direct Berekenen")
 
 st.header("Input Parameters")
+#INPUTS NGHG FORMULA
+
+Y0 = st.number_input("Y(0): Inkomen in basisjaar", value=100, step=0.01, format="%.2f", key="Y0")
+beta0 = st.number_input("β0", value=1, step=0.1, format="%.1f", key="beta0")
 
 # INPUTS
 T0 = st.number_input("T(0): Temperatuur in basisjaar", value=0.56, step=0.01, format="%.2f", key="T0")
@@ -20,6 +24,10 @@ t = st.slider("t (jaren)", min_value=0, max_value=200, value=40, key="t")
 st.divider()
 
 st.subheader("Berekening van $T^*(t)$")
+
+try:
+        GHG = beta0 * Y0**beta2
+    st.markdown(f"## **{GHG:.3f}")
 
 # BEREKENING VAN T*(t)
 try:
@@ -63,6 +71,7 @@ except ZeroDivisionError:
 except Exception as e:
     st.error(f"Er is een onverwachte fout opgetreden: {e}")
     st.error("Controleer of de berekeningen positieve waarden geven voor de logaritme.")
+
 
 
 
