@@ -80,7 +80,7 @@ else:
 st.header("Dynamiek van $T^*(t)$ over delta")
 
 # Bepaal het bereik voor de grafiek
-delta_range = np.arange(0, delta + 1 if delta > 0 else 201, 1)
+delta_range = np.arange(0, delta + 0.001 if delta > 0 else 201, 1)
 
 # Bereken de reeks T*(t) waarden met de functie
 T_ster_series, foutmelding_series = bereken_temperatuur(delta_range, *params)
