@@ -13,8 +13,8 @@ T0 = st.number_input("T(0): Temperatuur in basisjaar", value=0.56, step=0.01, fo
 NGHG0 = st.number_input("NGHG(0): Emissies in basisjaar", value=0.09705, step=0.001, format="%.5f", key="NGHG0")
 delta = st.number_input("δ: schadeparameter", value=0.040, step=0.01, format="%.3f", key="delta")
 beta2 = st.number_input("1-β2: Innovatie en populatie parameter", value=0.52, step=0.01, format="%.3f", key="beta2")
-g = st.number_input("g: groeifactor", value=0.0288, step=0.001, format="%.3f", key="g")
-k = st.number_input("K: klimaatrespons op emissies", value=0.346, step=0.01, format="%.3f", key="k")
+g = st.number_input("g: groeifactor", value=0.02875609756097561, step=0.001, format="%.17f", key="g")
+k = st.number_input("K: klimaatrespons op emissies", value=0.3464404373330687, step=0.01, format="%.17f", key="k")
 beta1 = st.number_input("β1: Innovatie en populatie parameter", value=0.030, step=0.001, format="%.3f", key="beta1")
 
 # Tijd variabele
@@ -96,6 +96,7 @@ else:
     
     # Plot de grafiek
     st.line_chart(df, x='Jaar', y='Temperatuur (°C)')
+
 
 
 
