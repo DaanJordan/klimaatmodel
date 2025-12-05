@@ -11,7 +11,7 @@ Y0 = st.number_input("Y(0): NEGEER DIT! Inkomen in basisjaar", value=100.0, step
 beta0 = st.number_input("NEGEER DIT! β0", value=1.0, step=0.1, format="%.1f", key="beta0_input")
 T0 = st.number_input("T(0): Temperatuur in basisjaar", value=0.56, step=0.01, format="%.3f", key="T0")
 NGHG0 = st.number_input("NGHG(0): Emissies in basisjaar", value=0.09705, step=0.001, format="%.5f", key="NGHG0")
-t_single = st.slider("t (jaren) voor een enkel punt", min_value=0, max_value=200, value=40, key="t_single")
+t_single = st.number_input("t (jaren) voor een enkel punt", value=40, key="t_single")
 beta2 = st.number_input("1-β2: Innovatie en populatie parameter", value=0.52, step=0.01, format="%.3f", key="beta2")
 g = st.number_input("g: groeifactor", value=0.02875609756097561, step=0.001, format="%.17f", key="g")
 k = st.number_input("K: klimaatrespons op emissies", value=0.3464404373330687, step=0.01, format="%.17f", key="k")
@@ -77,25 +77,25 @@ else:
 # 2. GRAFIEK OVER DE VOLLEDIGE PERIODE
 # =========================================================================
 
-st.header("Dynamiek van $T^*(t)$ over de tijd")
+st.header("Dynamiek van $T^*(t)$ over delta")
 
 # Bepaal het bereik voor de grafiek
-t_range = np.arange(0, t_single + 1 if t_single > 0 else 201, 1)
+delta_range = np.arange(0, delta + 1 if delta > 0 else 201, 1)
 
 # Bereken de reeks T*(t) waarden met de functie
-T_ster_series, foutmelding_series = bereken_temperatuur(t_range, *params)
+T_ster_series, foutmelding_series = bereken_temperatuur(delta_range, *params)
 
 if foutmelding_series:
     st.error(f"Fout bij het genereren van de grafiek: {foutmelding_series}")
 else:
     # Maak een Pandas DataFrame
     df = pd.DataFrame({
-        'Jaar': t_range,
+        'Delta': delta_range,
         'Temperatuur (°C)': T_ster_series
     })
     
     # Plot de grafiek
-    st.line_chart(df, x='Jaar', y='Temperatuur (°C)')
+    st.line_chart(df, x='Delta', y='Temperatuur (°C)')
 
 
 
