@@ -18,7 +18,7 @@ k = st.number_input("K: klimaatrespons op emissies", value=0.3464404373330687, s
 beta1 = st.number_input("β1: Innovatie en populatie parameter", value=0.030, step=0.001, format="%.3f", key="beta1")
 
 # Tijd variabele
-delta = st.slider("δ: schadeparameter", min_value=, max_value=0.25, value=0.030, step=0.001, format="%.3f", key="delta")
+delta = st.slider("δ: schadeparameter", min_value=0.03, max_value=0.25, value=0.030, step=0.001, format="%.3f", key="delta")
 
 st.divider()
 
